@@ -23,7 +23,7 @@ WHERE r.idActeur = a.idArtiste
 AND a.nom = 'Willis'
 AND a.prénom = 'Bruce';
 
-Mots-clés utilisés :La requête utilise SELECT pour choisir la colonne nomRôle de la table role (alias r). FROM indique deux tables : role (alias r) et artiste (alias a). WHERE combine trois conditions avec AND :  
+Mots-clés utilisés :La requête utilise SELECT pour choisir la colonne nomRôle de la table role (alias r). FROM indique deux tables : role (alias r) et artiste (alias a). WHERE combine trois conditions avec AND:  
 
 r.idActeur = a.idArtiste : relie les tables en disant que l’acteur dans role doit correspondre à un artiste dans artiste (comme une jointure).  
 a.nom = 'Willis' : garde seulement les artistes nommés Willis.  
@@ -54,7 +54,7 @@ SELECT a.nom, a.prénom
 FROM role r, artiste a
 WHERE r.nomRôle = 'Chewbacca' AND r.idActeur = a.idArtiste;
 
-Mots-clés utilisés :La requête utilise SELECT pour choisir nom et prénom de artiste (alias a). FROM indique les tables role (alias r) et artiste (alias a). WHERE combine deux conditions avec AND :  
+Mots-clés utilisés :La requête utilise SELECT pour choisir nom et prénom de artiste (alias a). FROM indique les tables role (alias r) et artiste (alias a). WHERE combine deux conditions avec AND:  
 
 r.nomRôle = 'Chewbacca' : garde seulement le rôle nommé Chewbacca.  
 r.idActeur = a.idArtiste : relie l’acteur du rôle à un artiste (comme une jointure). Ces conditions trouvent l’artiste qui a joué Chewbacca.
@@ -71,7 +71,7 @@ WHERE artiste.nom = 'Willis' AND artiste.prénom = 'Bruce' AND role.nomRôle = '
 Mots-clés utilisés :La requête utilise SELECT pour choisir titre de film. FROM commence avec role. JOIN relie deux tables : film et artiste. ON explique :  
 
 role.idFilm = film.idFilm : lie le film du rôle à un film dans film.  
-role.idActeur = artiste.idArtiste : lie l’acteur du rôle à un artiste. WHERE filtre avec trois conditions combinées par AND :  
+role.idActeur = artiste.idArtiste : lie l’acteur du rôle à un artiste. WHERE filtre avec trois conditions combinées par AND:  
 artiste.nom = 'Willis' : garde l’artiste nommé Willis.  
 artiste.prénom = 'Bruce' : précise le prénom Bruce.  
 role.nomRôle = 'John McClane' : garde le rôle John McClane. Ces conditions trouvent les films où Bruce Willis joue ce rôle.
@@ -104,7 +104,7 @@ WHERE i.prénom = 'Prénom0' AND i.nom = 'Nom0';
 Mots-clés utilisés :La requête utilise SELECT pour choisir titre de film (alias f). FROM commence avec notation (alias n). JOIN relie film (alias f) et internaute (alias i). ON explique :  
 
 n.idFilm = f.idFilm : lie le film noté à un film dans film.  
-n.email = i.email : lie l’internaute qui a noté à un internaute dans internaute. WHERE filtre avec deux conditions combinées par AND :  
+n.email = i.email : lie l’internaute qui a noté à un internaute dans internaute. WHERE filtre avec deux conditions combinées par AND:  
 i.prénom = 'Prénom0' : garde l’internaute avec ce prénom.  
 i.nom = 'Nom0' : précise le nom. Ces conditions trouvent les films notés par cet internaute.
 
@@ -125,7 +125,7 @@ Mots-clés utilisés :La requête utilise SELECT pour choisir titre de film (ali
 
 f.idFilm = r.idFilm : lie le film à un rôle.  
 r.idActeur = a1.idArtiste : lie l’acteur du rôle à un artiste.  
-f.idRéalisateur = a2.idArtiste : lie le réalisateur du film à un artiste. WHERE filtre avec quatre conditions combinées par AND :  
+f.idRéalisateur = a2.idArtiste : lie le réalisateur du film à un artiste. WHERE filtre avec quatre conditions combinées par AND:  
 a2.nom = 'Burton' et a2.prénom = 'Tim' : garde le réalisateur Tim Burton.  
 a1.nom = 'Depp' et a1.prénom = 'Johnny' : garde l’acteur Johnny Depp. Ces conditions trouvent les films où les deux sont impliqués.
 
@@ -141,7 +141,7 @@ AND role.idActeur = artiste.idArtiste
 AND artiste.nom = 'Allen'
 AND artiste.prénom = 'Woody';
 
-Mots-clés utilisés :La requête utilise SELECT pour choisir titre de film et nomRôle de role. FROM indique trois tables : role, film, et artiste. WHERE combine quatre conditions avec AND :  
+Mots-clés utilisés :La requête utilise SELECT pour choisir titre de film et nomRôle de role. FROM indique trois tables : role, film, et artiste. WHERE combine quatre conditions avec AND:  
 
 role.idFilm = film.idFilm : relie le rôle à un film (comme une jointure).  
 role.idActeur = artiste.idArtiste : relie l’acteur du rôle à un artiste.  
@@ -174,7 +174,7 @@ AND f.idFilm NOT IN (
   SELECT r.idFilm FROM role r WHERE r.idActeur = a.idArtiste
 );
 
-Mots-clés utilisés :La requête utilise SELECT pour choisir titre de film (alias f). FROM commence avec film (alias f). JOIN relie artiste (alias a). ON précise : f.idRéalisateur = a.idArtiste lie le réalisateur du film à un artiste. WHERE combine trois conditions avec AND :  
+Mots-clés utilisés :La requête utilise SELECT pour choisir titre de film (alias f). FROM commence avec film (alias f). JOIN relie artiste (alias a). ON précise : f.idRéalisateur = a.idArtiste lie le réalisateur du film à un artiste. WHERE combine trois conditions avec AND:  
 
 a.nom = 'Tarantino' : garde l’artiste nommé Tarantino.  
 a.prénom = 'Quentin' : précise le prénom Quentin.  
@@ -194,7 +194,7 @@ WHERE EXISTS (
 Mots-clés utilisés :La requête utilise SELECT pour choisir nom, prénom de artiste, nomRôle de role, et titre de film. DISTINCT évite les doublons. FROM commence avec role (alias r). JOIN relie artiste (alias a) et film (alias f). ON précise :  
 
 r.idActeur = a.idArtiste : lie l’acteur du rôle à un artiste.  
-r.idFilm = f.idFilm : lie le rôle à un film. WHERE utilise EXISTS avec une sous-requête pour vérifier si l’artiste (a.idArtiste) est aussi réalisateur. La sous-requête utilise SELECT avec **** pour lister les films où f2.idRéalisateur = a.idArtiste.
+r.idFilm = f.idFilm : lie le rôle à un film. WHERE utilise EXISTS avec une sous-requête pour vérifier si l’artiste (a.idArtiste) est aussi réalisateur. The sous-requête utilise SELECT avec * pour lister les films où f2.idRéalisateur = a.idArtiste.
 
 
 Exo 15 : Donnez les films de Hitchcock sans James Stewart
@@ -208,7 +208,7 @@ AND f.idFilm NOT IN (
   WHERE a2.nom = 'Stewart' AND a2.prénom = 'James'
 );
 
-Mots-clés utilisés :La requête utilise SELECT pour choisir titre de film (alias f). FROM commence avec film (alias f). JOIN relie artiste (alias a). ON précise : f.idRéalisateur = a.idArtiste lie le réalisateur à un artiste. WHERE combine trois conditions avec AND :  
+Mots-clés utilisés :La requête utilise SELECT pour choisir titre de film (alias f). FROM commence avec film (alias f). JOIN relie artiste (alias a). ON précise : f.idRéalisateur = a.idArtiste lie le réalisateur à un artiste. WHERE combine trois conditions avec AND:  
 
 a.nom = 'Hitchcock' : garde le réalisateur nommé Hitchcock.  
 a.prénom = 'Alfred' : précise le prénom Alfred.  
@@ -224,11 +224,11 @@ JOIN role r ON f.idFilm = r.idFilm
 JOIN artiste a2 ON r.idActeur = a2.idArtiste
 WHERE a1.prénom = a2.prénom AND a1.idArtiste != a2.idArtiste;
 
-Mots-clés utilisés :La requête utilise SELECT pour choisir titre, nom, et prénom des deux artistes. AS renomme les colonnes pour clarté. FROM commence avec film (alias f). JOIN relie artiste (alias a1 pour le réalisateur), role (alias r), et artiste (alias a2 pour l’acteur). ON précise :  
+Mots-clés utilisés :La requête utilise SELECT pour choisir titre, nom, et prénom des deux artistes. AS renomme les colonnes pour clarté. FROM commence avec film (alias f). JOIN relie artiste (alias a1 pour le réalisateur), role (alias r), et artistestated (alias a2 pour l’acteur). ON précise :  
 
 f.idRéalisateur = a1.idArtiste : lie le réalisateur à un artiste.  
 f.idFilm = r.idFilm : lie le film à un rôle.  
-r.idActeur = a2.idArtiste : lie l’acteur du rôle à un artiste. WHERE filtre avec deux conditions combinées par AND :  
+r.idActeur = a2.idArtiste : lie l’acteur du rôle à un artiste. WHERE filtre avec deux conditions combinées par AND:  
 a1.prénom = a2.prénom : garde les cas où le prénom du réalisateur et de l’acteur est identique.  
 a1.idArtiste != a2.idArtiste : s’assure que ce ne sont pas la même personne.
 
@@ -258,7 +258,7 @@ WHERE NOT EXISTS (
   AND i.nom = 'Nom1'
 );
 
-Mots-clés utilisés :La requête utilise SELECT pour choisir titre de film (alias f). FROM commence avec film (alias f). WHERE utilise NOT EXISTS pour vérifier qu’aucune ligne n’existe dans la sous-requête. La sous-requête utilise SELECT avec 1 (pour optimiser), FROM pour notation (alias n) et internaute (alias i), et WHERE avec trois conditions combinées par AND :  
+Mots-clés utilisés :La requête utilise SELECT pour choisir titre de film (alias f). FROM commence avec film (alias f). WHERE utilise NOT EXISTS pour vérifier qu’aucune ligne n’existe dans la sous-requête. La sous-requête utilise SELECT avec 1 (pour optimiser), FROM pour notation (alias n) et internaute (alias i), et WHERE avec trois conditions combinées par AND:  
 
 n.email = i.email : lie la note à un internaute.  
 n.idFilm = f.idFilm : lie la note au film.  
